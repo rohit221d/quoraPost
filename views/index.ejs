@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts Index Page!</title>
+</head>
+
+<body>
+    <h1 style="color: maroon;">Quora Posts....</h1>
+    <ol>
+
+        <% for(let post of posts) { %>
+            <li style="background-color: blanchedalmond;">
+                <p style="color: rgb(254, 0, 190);">Post id: <%= post.id %>
+                </p>
+                <h2 style="color: maroon;">Post username: @<%=post.username %>
+                </h2>
+                <h3>Post content: <%=post.content %>
+                </h3>
+                <a href="/posts/<%=post.id%>"><button>View Details!</button></a>
+                <a href="/posts/<%=post.id%>/edit"><button>Edit Post!</button></a>
+                <form action="/posts/<%=post.id%>?_method=DELETE" method="post">
+                    <button>Delete Post!</button>
+                </form>           
+             </li>
+        <% } %>
+        <br><br>
+        <button>
+            <a href="/posts/new">Create New Post!</a>
+        </button>
+
+    </ol>
+
+</body>
+
+</html>
